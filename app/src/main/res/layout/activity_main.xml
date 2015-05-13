@@ -16,7 +16,9 @@
         android:paddingLeft="16dp"
         android:layout_weight="1"
         android:background="#fffffdf7"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:id="@+id/ll_rating"
+        >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -43,7 +45,9 @@
         android:paddingLeft="16dp"
         android:layout_weight="1"
         android:background="#fffffdf7"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:id="@+id/ll_calculate"
+        >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -69,7 +73,9 @@
         android:paddingLeft="16dp"
         android:layout_weight="1"
         android:background="#fffffdf7"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:id="@+id/ll_currency"
+        >
 
         <ImageView
             android:layout_width="wrap_content"
