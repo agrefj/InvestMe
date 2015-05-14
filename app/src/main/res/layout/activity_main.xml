@@ -31,10 +31,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textSize="21dp"
             android:text="Рейтинг вкладов"
             android:layout_weight="1"
-            android:textSize="21dp"
-            android:gravity="center_vertical|center_horizontal" />
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="#ff000000" />
 
     </LinearLayout>
 
@@ -62,7 +63,8 @@
             android:text="Депозитный калькулятор"
             android:layout_weight="1"
             android:textSize="21dp"
-            android:gravity="center_vertical|center_horizontal" />
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="#ff000000" />
 
     </LinearLayout>
 
@@ -90,7 +92,8 @@
             android:text="Котировки"
             android:layout_weight="1"
             android:textSize="21dp"
-            android:gravity="center_vertical|center_horizontal" />
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="#ff000000" />
 
     </LinearLayout>
 
