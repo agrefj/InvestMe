@@ -26,7 +26,6 @@ public class InvestMeContract {
 
         public static final String TABLE_NAME ="deposits";
 
-        public static final String COLUMN_DEPOSIT_ID = "deposit_id";
         public static final String COLUMN_BANK_ID = "bank_id";
         public static final String COLUMN_DEPOSIT_NAME = "deposit_name";
         public static final String COLUMN_MAX_RATE = "max_rate";
