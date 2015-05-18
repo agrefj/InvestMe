@@ -1,19 +1,55 @@
 package ru.getlect.investme.investme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+
+import ru.getlect.investme.investme.data.InvestMeDBHelper;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+
+    LinearLayout ll_calculate;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        InvestMeDBHelper dbHelper = new InvestMeDBHelper(this);
+        ll_calculate= (LinearLayout) findViewById(R.id.ll_calculate);
+        ll_calculate.setOnClickListener(this);
+
+
+
+
+
     }
+
+
+    @Override
+    public void onClick(View v) {
+        Intent intent_calculate = new Intent (this, ru.getlect.investme.investme.CalculatorActivity.class);
+        switch (v.getId()) {
+            case R.id.ll_calculate:
+                intent_calculate = new Intent(this, CalculatorActivity.class);
+                break;
+
+            default:
+                break;
+        }
+        startActivity(intent_calculate);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
