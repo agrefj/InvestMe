@@ -25,6 +25,17 @@
     <string name="calculate_data_warning">Сумма, ставка и срок вклада обязательны. Пожалуйста, заполните их!</string>
 
 
+    //Deposit calculator result
+    <string name="deposit_sumR">Сумма вклада:</string>
+    <string name="deposit_rateR">Процентная ставка:</string>
+    <string name="deposit_periodR">Срок вклада:</string>
+    <string name="you_invested">Вы инвестировали:</string>
+    <string name="you_will_receive">Вы получите:</string>
+    <string name="amount_of_money">Сумма денег:</string>
+    <string name="effective_IR">Эффективная ставка:</string>
+    <string name="interest_earned">Денег заработано:</string>
+
+
 
 
 
