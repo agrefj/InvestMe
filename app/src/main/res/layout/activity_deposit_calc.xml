@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:background="#ffcdd3de"
+    android:background="#ffeeeeee"
     android:padding="16dp"
     android:gravity="center_vertical"
     >
@@ -28,14 +28,13 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="2"
             android:textSize="16dp"
             android:inputType="number"
             android:gravity="center_horizontal"
             android:width="50dp"
             android:maxLength="8"
-            />
+            android:id="@+id/et_amountOfDeposit" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +43,8 @@
             android:textSize = "21dp"
             android:textStyle="bold"
             android:gravity="end"
-            android:text="рублей"/>
+            android:text="@string/string_rubles"
+             />
 
     </LinearLayout>
 
@@ -58,21 +58,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Процентная ставка"
+            android:text="@string/deposit_rate"
             android:layout_weight="1"
             android:textSize="21dp"
             android:textStyle="bold"
-            />
+             />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="2"
             android:gravity="center_horizontal"
             android:textSize="16dp"
             android:inputType="numberDecimal"
             android:maxLength="2"
+            android:id="@+id/et_rateOfInterest"
              />
 
         <TextView
@@ -82,7 +82,7 @@
             android:textSize="21dp"
             android:gravity="end"
             android:textStyle="bold"
-            android:text="%"
+            android:text="@string/percentage_symbol"
              />
     </LinearLayout>
 
@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:textSize = "21dp"
             android:textStyle="bold"
-            android:text="Срок вклада"
+            android:text="@string/deposit_period"
 
             />
 
@@ -106,24 +106,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="0"
             android:textSize="16dp"
             android:layout_weight="2"
             android:inputType="number"
             android:maxLength="4"
 
-            />
+            android:id="@+id/et_periodOfDeposit" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="дней"
+            android:text="@string/days"
             android:textSize="21dp"
             android:textStyle="bold"
             android:layout_weight="2"
 
-            />
+             />
 
 
 
@@ -140,8 +139,8 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Капитализация"
-            android:id="@+id/checkBox"
+            android:text="@string/capitalization"
+            android:id="@+id/checkBox_capitalization"
             android:checked="false" />
     </LinearLayout>
 
@@ -155,7 +154,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Пополнение"
+            android:text="@string/replenishment"
             android:id="@+id/checkBox_replenishment"
             android:checked="false" />
 
@@ -174,11 +173,11 @@
     <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сумма пополнений"
+                android:text="@string/replenishment_amount"
                 android:layout_weight="1"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                />
+         />
 
 
     <EditText
@@ -190,19 +189,20 @@
                 android:inputType="number"
                 android:gravity="center_horizontal"
 
-        android:maxLength="8" />
+        android:maxLength="8"
+        android:id="@+id/et_replenishmentAmount" />
 
     <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="рублей"
+                android:text="@string/string_rubles"
                 android:layout_weight="2"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:gravity="end"
 
 
-                />
+         />
 
 
     </LinearLayout>
@@ -227,14 +227,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        >
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center">
 
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button" />
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            card_view:cardBackgroundColor="#ff2196f3"
+            android:layout_centerInParent="true"
+            card_view:cardCornerRadius="2dp"
+            android:id="@+id/calculate"
+            android:layout_margin="6dp"
+            card_view:cardElevation="6dp"
+
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="#deffffff"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/calculate"
+
+
+                 />
+
+
+        </android.support.v7.widget.CardView>
+
+
+
     </LinearLayout>
 
 

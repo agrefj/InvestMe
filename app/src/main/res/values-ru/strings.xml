@@ -1,0 +1,38 @@
+<resources>
+
+    <string name="action_settings">Настройки</string>
+
+    //mainActivity strings
+    <string name="top_deposits">Рейтинг вкладов</string>
+    <string name="deposit_calculator">Депозитный калькулятор</string>
+    <string name="currency">Котировки</string>
+
+
+    //Deposit calculator activity strings
+    <string name="deposit_sum">Сумма вклада</string>
+    <string name="string_rubles">рублей</string>
+    <string name="deposit_rate">Процентная ставка</string>
+    <string name="deposit_period">Срок вклада</string>
+    <string name="days">дней</string>
+    <string name="capitalization">Капитализация</string>
+    <string name="replenishment">Пополнение</string>
+    <string name="replenishment_amount">Сумма пополнений</string>
+    <string name="weekly">Еженедельно</string>
+    <string name="monthly">Ежемесячно</string>
+    <string name="quarterly">Ежеквартально</string>
+    <string name="calculate">Рассчитать</string>
+
+    <string name="calculate_data_warning">Сумма, ставка и срок вклада обязательны. Пожалуйста, заполните их!</string>
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>
