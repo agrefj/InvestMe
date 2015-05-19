@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".CalculatorActivity"
+            android:screenOrientation="portrait"/>
+
+
     </application>
 
 </manifest>

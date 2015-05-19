@@ -37,6 +37,8 @@ public class CalculatorActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit_calc);
 
+        setTitle(R.string.deposit_calculator);
+
         checkBox_capitalization = (CheckBox)findViewById(R.id.checkBox_capitalization);
 
         checkBox_replenishment = (CheckBox) findViewById(R.id.checkBox_replenishment);

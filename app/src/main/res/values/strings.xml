@@ -33,6 +33,10 @@
     <string name="calculate_data_warning">Amount,rate and period of deposit are necessary.Please fill them!</string>
 
 
+    //Deposit calculator result
+    <string name="deposit_sumR">Amount of deposit:</string>
+    <string name="deposit_rateR">Rate of Interest:</string>
+    <string name="deposit_periodR">Period:</string>
 
 
 
