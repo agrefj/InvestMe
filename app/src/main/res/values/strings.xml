@@ -37,8 +37,11 @@
     <string name="deposit_sumR">Amount of deposit:</string>
     <string name="deposit_rateR">Rate of Interest:</string>
     <string name="deposit_periodR">Period:</string>
-
-
+    <string name="you_invested">You invested:</string>
+    <string name="you_will_receive">You will receive:</string>
+    <string name="amount_of_money">Amount of money:</string>
+    <string name="effective_IR">Effective interest rate:</string>
+    <string name="interest_earned">Interest earned:</string>
 
 
 

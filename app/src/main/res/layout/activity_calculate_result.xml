@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
@@ -15,8 +16,166 @@
         android:layout_weight="1"
         android:background="#fffffdf7"
         android:layout_marginBottom="10dp"
-        android:id="@+id/ll_rating"
+
         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:text="@string/you_will_receive"/>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_of_money"
+                android:layout_weight="1"
+                android:textSize = "16dp"
+
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="100000"
+                android:id="@+id/tv_receive_amount"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize = "16dp"
+                android:textStyle="bold"
+                android:text="@string/string_rubles"
+                android:gravity="center_horizontal" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/effective_IR"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="14"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:id="@+id/tv_receive_eir" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:text="@string/percentage_symbol"
+                android:textStyle="bold"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:text="@string/interest_earned"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="360"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:id="@+id/tv_receive_earned"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:text="@string/string_rubles"
+                android:textStyle="bold"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:layout_weight="1"
+        android:background="#fffffdf7"
+        android:layout_marginBottom="10dp"
+
+        >
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_weight="1">
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/you_invested"
+             android:textStyle="bold"
+             android:textSize="30dp"
+             android:gravity="center_horizontal"/>
+
+     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -29,29 +188,30 @@
             android:layout_height="wrap_content"
             android:text="@string/deposit_sumR"
             android:layout_weight="1"
-            android:textSize = "21dp"
+            android:textSize = "16dp"
 
-            />
+             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="100000"
-            android:textSize="21dp"
+            android:textSize="16dp"
             android:gravity="center"
             android:textStyle="bold"
-            android:id="@+id/textView2" />
+            android:id="@+id/tv_invested_amount" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:textSize = "21dp"
+            android:textSize = "16dp"
             android:textStyle="bold"
-            android:gravity="end"
             android:text="@string/string_rubles"
-            />
+            android:gravity="center_horizontal" />
+
+
 
 
     </LinearLayout>
@@ -67,27 +227,28 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/deposit_rateR"
-            android:textSize="21dp"
+            android:textSize="16dp"
              />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/tv_invested_rate"
             android:text="14"
-            android:textSize="21dp"
+            android:textSize="16dp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:id="@+id/textView4" />
+            android:gravity="center" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="21dp"
+            android:textSize="16dp"
             android:text="@string/percentage_symbol"
             android:textStyle="bold"
-            android:gravity="end"
+            android:gravity="center_horizontal"
              />
 
     </LinearLayout>
@@ -102,7 +263,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="21dp"
+            android:textSize="16dp"
             android:text="@string/deposit_period"
              />
 
@@ -110,268 +271,51 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/tv_invested_period"
             android:text="360"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="21dp"
+            android:textSize="16dp"
              />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="21dp"
+            android:textSize="16dp"
             android:text="@string/days"
-            android:gravity="end"
             android:textStyle="bold"
-         />
+            android:gravity="center_horizontal" />
 
-    </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:layout_weight="1"
-        android:background="#fffffdf7"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/ll_rating"
-        >
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
             android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
             android:layout_height="wrap_content">
 
-            <TextView
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deposit_sumR"
-                android:layout_weight="1"
-                android:textSize = "21dp"
+                android:checked="true"
+                android:text="@string/capitalization"
+                android:id="@+id/cb_invested_capitalization"
+                android:clickable="false"/>
 
-                />
-
-            <TextView
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="100000"
-                android:textSize="21dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:id="@+id/textView2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textSize = "21dp"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:text="@string/string_rubles"
-                />
-
+                android:layout_marginLeft="16dp"
+                android:checked="true"
+                android:id="@+id/cb_invested_replenishment"
+                android:text="@string/replenishment"
+                android:clickable="false"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/deposit_rateR"
-                android:textSize="21dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="14"
-                android:textSize="21dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:id="@+id/textView4" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="21dp"
-                android:text="@string/percentage_symbol"
-                android:textStyle="bold"
-                android:gravity="end"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="21dp"
-                android:text="@string/deposit_period"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="360"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="21dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="21dp"
-                android:text="@string/days"
-                android:gravity="end"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:layout_weight="1"
-        android:background="#fffffdf7"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/ll_rating"
-        >
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/deposit_sumR"
-                android:layout_weight="1"
-                android:textSize = "21dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="100000"
-                android:textSize="21dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                 />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textSize = "21dp"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:text="@string/string_rubles"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/deposit_rateR"
-                android:textSize="21dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="14"
-                android:textSize="21dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:id="@+id/textView4" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="21dp"
-                android:text="@string/percentage_symbol"
-                android:textStyle="bold"
-                android:gravity="end"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="21dp"
-                android:text="@string/deposit_period"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="360"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="21dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="21dp"
-                android:text="@string/days"
-                android:gravity="end"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-    </LinearLayout>
 
 
 

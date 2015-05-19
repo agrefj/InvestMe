@@ -1,5 +1,6 @@
 package ru.getlect.investme.investme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
@@ -257,7 +258,26 @@ public class CalculatorActivity extends ActionBarActivity implements
                     float calculationResult = Calculation();
                     String textToShow = Float.toString(calculationResult);
 
-                    Toast.makeText(this, textToShow, Toast.LENGTH_LONG).show();
+                    boolean invested_capitalization=false;
+                    if(checkBox_capitalization.isChecked()){
+                        invested_capitalization=true;
+                    }
+                    boolean invested_replenishment=false;
+                    if(checkBox_replenishment.isChecked()){
+                        invested_replenishment=true;
+                    }
+
+                    Intent intent_deposit_result = new Intent(this, CalculatorResult.class);
+                    intent_deposit_result.putExtra("invested_amount",et_amountOfDeposit.getText().toString());
+                    intent_deposit_result.putExtra("invested_rate",et_rateOfInterest.getText().toString());
+                    intent_deposit_result.putExtra("invested_period", et_periodOfDeposit.getText().toString());
+                    intent_deposit_result.putExtra("invested_capitalization",invested_capitalization);
+                    intent_deposit_result.putExtra("invested_replenishment",invested_replenishment);
+                    intent_deposit_result.putExtra("receive_amount", calculationResult);
+
+
+                    startActivity(intent_deposit_result);
+
                 }
                 else {
                     Toast.makeText(this, R.string.calculate_data_warning, Toast.LENGTH_LONG).show();

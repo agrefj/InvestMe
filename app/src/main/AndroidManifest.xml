@@ -20,6 +20,7 @@
         <activity android:name=".CalculatorActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".CalculatorResult"/>
 
     </application>
 
