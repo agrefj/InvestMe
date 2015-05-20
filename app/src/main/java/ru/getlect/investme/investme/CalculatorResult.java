@@ -2,6 +2,7 @@ package ru.getlect.investme.investme;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -24,6 +25,9 @@ public class CalculatorResult extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate_result);
+
+        setTitle(R.string.deposit_calculator);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_invested_amount = (TextView)findViewById(R.id.tv_invested_amount);
         String invested_amount = getIntent().getStringExtra("invested_amount");
@@ -75,4 +79,15 @@ public class CalculatorResult extends ActionBarActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        onBackPressed();
+        return true;
+    }
+
+
+
+
 }
+
+

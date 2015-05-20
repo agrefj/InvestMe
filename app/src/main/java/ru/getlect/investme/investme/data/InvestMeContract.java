@@ -1,5 +1,7 @@
 package ru.getlect.investme.investme.data;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -26,18 +28,29 @@ public class InvestMeContract {
         public static final String COLUMN_BANK_FULL_NAME = "bank_full_name";
 
 
+
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_BANKS).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_BANKS;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_BANKS;
 
-        public static Uri buildClassesUri() {
+
+        public static Uri buildBanksUri() {
             return CONTENT_URI;
+        }
 
+        public static Uri buildBankById(int bankId){
+            return ContentUris.withAppendedId(CONTENT_URI, bankId);
         }
 
         public static Uri buildDepositsOfBank(int bankId) {
-            return CONTENT_URI.buildUpon().appendPath(Integer.toString(bankId)).build();
+            Uri bankUri = buildBankById(bankId);
+            return bankUri.buildUpon().appendPath(PATH_DEPOSITS).build();
         }
 
 
+        public static Long getIdFromUri(Uri uri) {
+            return Long.parseLong(uri.getPathSegments().get(1));
+        }
     }
 
     public static final class DepositsEntry implements BaseColumns {
@@ -55,9 +68,20 @@ public class InvestMeContract {
 
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DEPOSITS).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_DEPOSITS;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_DEPOSITS;;
 
+        public static Uri buildDepositsUri() {
+            return CONTENT_URI;
+        }
 
+        public static Uri buildDepositById(int depositId) {
+            return ContentUris.withAppendedId(CONTENT_URI, depositId);
+        }
 
+        public static long getIdFromUri(Uri uri) {
+            return Long.parseLong(uri.getPathSegments().get(1));
+        }
     }
 
 }

@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class InvestMeDBHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "investme.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 4;
 
 
 
@@ -38,7 +38,7 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
                 //Set up the bank column as a foreign key to bank table
                 " FOREIGN KEY (" + InvestMeContract.DepositsEntry.COLUMN_BANK_ID + ") REFERENCES " +
                 InvestMeContract.BanksEntry.TABLE_NAME + " (" + InvestMeContract.BanksEntry._ID + "), " +
-                               
+
                 InvestMeContract.DepositsEntry.COLUMN_DEPOSIT_NAME + " TEXT NOT NULL," +
                 InvestMeContract.DepositsEntry.COLUMN_MAX_RATE + " INTEGER NOT NULL," +
                 InvestMeContract.DepositsEntry.COLUMN_MIN_AMOUNT + " INTEGER," +
@@ -50,9 +50,6 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_BANKS_TABLE);
         db.execSQL(SQL_CREATE_DEPOSITS_TABLE);
-
-
-
 
     }
 

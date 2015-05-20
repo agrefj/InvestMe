@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffeeeeee"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    >
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:layout_weight="1"
+        android:background="#fffffdf7"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/currncy_ll_dollar"
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dollar"
+           />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/cur_dollar"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="28dp"
+            android:gravity="center_vertical|center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="49,7919"
+            android:textStyle="bold"
+            android:textColor="#ff24ee49"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="21dp" />
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:layout_weight="1"
+        android:background="#fffffdf7"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/currncy_ll_euro"
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/euro"
+             />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/cur_euro"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="55,2441"
+            android:textStyle="bold"
+            android:textColor="#ff24ee49"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="21dp"
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:layout_weight="1"
+        android:background="#fffffdf7"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/currncy_ll_gold"
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/gold"
+          />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/cur_gold"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:gravity="center_vertical|center_horizontal"
+             />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="60213,34"
+            android:textStyle="bold"
+            android:textColor="#ff24ee49"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="21dp"
+          />
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:layout_weight="1"
+        android:background="#fffffdf7"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/currncy_ll_silver"
+
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/silver"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/cur_silver"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:gravity="center_vertical|center_horizontal"
+             />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="851,69"
+            android:textStyle="bold"
+            android:textColor="#ffee242a"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="21dp"
+             />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:layout_weight="1"
+        android:background="#fffffdf7"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/currncy_ll_oil"
+
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/oil"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/cur_oil"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="26dp"
+            android:gravity="center_vertical|center_horizontal"
+           />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="3232,98"
+            android:textStyle="bold"
+            android:textColor="#ff24ee49"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="21dp" />
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

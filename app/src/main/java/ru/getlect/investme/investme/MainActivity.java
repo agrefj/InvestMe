@@ -14,6 +14,9 @@ import ru.getlect.investme.investme.data.InvestMeDBHelper;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     LinearLayout ll_calculate;
+    LinearLayout ll_currency;
+    LinearLayout ll_rating;
+
 
 
 
@@ -28,6 +31,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         ll_calculate= (LinearLayout) findViewById(R.id.ll_calculate);
         ll_calculate.setOnClickListener(this);
 
+        ll_currency = (LinearLayout) findViewById(R.id.ll_currency);
+        ll_currency.setOnClickListener(this);
+
 
 
 
@@ -37,16 +43,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Intent intent_calculate = new Intent (this, ru.getlect.investme.investme.CalculatorActivity.class);
+        Intent intent_main_activity = getIntent() ;
         switch (v.getId()) {
             case R.id.ll_calculate:
-                intent_calculate = new Intent(this, CalculatorActivity.class);
+                intent_main_activity = new Intent(this, CalculatorActivity.class);
                 break;
+
+            case R.id.ll_currency:
+                intent_main_activity = new Intent(this, CurrencyActivity.class);
+                break;
+
 
             default:
                 break;
         }
-        startActivity(intent_calculate);
+        startActivity(intent_main_activity);
     }
 
 

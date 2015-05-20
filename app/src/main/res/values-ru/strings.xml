@@ -20,7 +20,7 @@
     <string name="weekly">Еженедельно</string>
     <string name="monthly">Ежемесячно</string>
     <string name="quarterly">Ежеквартально</string>
-    <string name="calculate">Рассчитать</string>
+    <string name="calculate">РАССЧИТАТЬ</string>
 
     <string name="calculate_data_warning">Сумма, ставка и срок вклада обязательны. Пожалуйста, заполните их!</string>
 
@@ -36,6 +36,12 @@
     <string name="interest_earned">Денег заработано:</string>
 
 
+    //Currency activity
+    <string name="cur_dollar">Доллар США</string>
+    <string name="cur_euro">Евро</string>
+    <string name="cur_oil">Нефть Brent</string>
+    <string name="cur_gold">Золото</string>
+    <string name="cur_silver">Серебро</string>
 
 
 

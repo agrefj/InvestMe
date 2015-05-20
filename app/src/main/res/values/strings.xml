@@ -22,7 +22,7 @@
     <string name="weekly">Weekly</string>
     <string name="monthly">Monthly</string>
     <string name="quarterly">Quarterly</string>
-    <string name="calculate">Calculate</string>
+    <string name="calculate">CALCULATE</string>
 
     <string-array name="deposit_period">
         <item>@string/weekly</item>
@@ -44,7 +44,12 @@
     <string name="interest_earned">Interest earned:</string>
 
 
-
+    //Currency activity
+    <string name="cur_dollar">USA Dollar</string>
+    <string name="cur_euro">Euro</string>
+    <string name="cur_oil">Brent oil</string>
+    <string name="cur_gold">Gold</string>
+    <string name="cur_silver">Silver</string>
 
 
 
