@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,6 +40,7 @@ public class CalculatorActivity extends ActionBarActivity implements
         setContentView(R.layout.activity_deposit_calc);
 
         setTitle(R.string.deposit_calculator);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         checkBox_capitalization = (CheckBox)findViewById(R.id.checkBox_capitalization);
 
@@ -289,6 +291,13 @@ public class CalculatorActivity extends ActionBarActivity implements
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        onBackPressed();
+        return true;
+    }
+
 }
 
 
