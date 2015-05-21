@@ -25,6 +25,8 @@
 
         <activity android:name=".CurrencyActivity"/>
 
+        <activity android:name=".DepositsTopActivity"/>
+
     </application>
 
 </manifest>

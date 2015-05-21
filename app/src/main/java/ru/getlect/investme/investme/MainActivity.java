@@ -34,6 +34,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         ll_currency = (LinearLayout) findViewById(R.id.ll_currency);
         ll_currency.setOnClickListener(this);
 
+        ll_rating = (LinearLayout) findViewById(R.id.ll_rating);
+        ll_rating.setOnClickListener(this);
+
 
 
 
@@ -52,6 +55,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.ll_currency:
                 intent_main_activity = new Intent(this, CurrencyActivity.class);
                 break;
+
+            case R.id.ll_rating:
+                intent_main_activity = new Intent(this, DepositsTopActivity.class);
 
 
             default:
