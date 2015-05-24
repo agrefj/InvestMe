@@ -6,6 +6,9 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Created by fj on 19.05.2015.
  */
@@ -20,6 +23,7 @@ public class CalculatorResult extends ActionBarActivity {
     TextView tv_receive_amount;
     TextView tv_receive_eir;
     TextView tv_receive_earned;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public class CalculatorResult extends ActionBarActivity {
 
         tv_receive_amount = (TextView)findViewById(R.id.tv_receive_amount);
         Float receive_amount = getIntent().getExtras().getFloat("receive_amount");
+        receive_amount = new BigDecimal(receive_amount).setScale(2, RoundingMode.UP).floatValue();
         tv_receive_amount.setText(String.valueOf(receive_amount));
 
         float efficient_IR = efficientInterestRate(invested_amount, receive_amount);
@@ -58,6 +63,7 @@ public class CalculatorResult extends ActionBarActivity {
         tv_receive_eir.setText(String.valueOf(efficient_IR));
 
         tv_receive_earned = (TextView)findViewById(R.id.tv_receive_earned);
+
         tv_receive_earned.setText(String.valueOf(earnedInterest(invested_amount,receive_amount)));
 
 
@@ -67,13 +73,15 @@ public class CalculatorResult extends ActionBarActivity {
         float invested = Float.parseFloat(invested_amount);
 
         float earnedAmount = receive_amount-invested;
-
+        earnedAmount = new BigDecimal(earnedAmount).setScale(2,RoundingMode.UP).floatValue();
         return earnedAmount;
     }
 
     public float efficientInterestRate(String invested_amount, Float receive_amount){
         float invested = Float.parseFloat(invested_amount);
         float EIR = ((receive_amount-invested)/invested)*100;
+
+        EIR = new BigDecimal(EIR).setScale(2, RoundingMode.UP).floatValue();
 
         return EIR;
 

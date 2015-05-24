@@ -17,7 +17,7 @@ public class DepositsTopActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_item_deposit);
+        setContentView(R.layout.activity_deposits_top);
 
         setTitle(R.string.top_deposits);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

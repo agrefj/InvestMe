@@ -3,27 +3,25 @@ package ru.getlect.investme.investme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.gc.materialdesign.views.Button;
+import com.gc.materialdesign.views.CustomView;
+
 /**
  * Created by fj on 17.05.2015.
  */
 public class CalculatorActivity extends ActionBarActivity implements
-        CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+         View.OnClickListener, com.gc.materialdesign.views.CheckBox.OnCheckListener {
 
     Spinner spinner_replenishment;
-    CheckBox checkBox_replenishment;
-    CheckBox checkBox_capitalization;
     LinearLayout ll_replenisment1;
     LinearLayout ll_replenisment2;
     String[] replenishment_period ;
@@ -31,7 +29,11 @@ public class CalculatorActivity extends ActionBarActivity implements
     EditText et_rateOfInterest;
     EditText et_periodOfDeposit;
     EditText et_replenishmentAmount;
-    CardView calculate;
+    com.gc.materialdesign.views.CheckBox checkBox_capitalization;
+    com.gc.materialdesign.views.CheckBox checkBox_replenishment;
+    CustomView calculate;
+    Toast toast;
+
 
 
     @Override
@@ -42,10 +44,10 @@ public class CalculatorActivity extends ActionBarActivity implements
         setTitle(R.string.deposit_calculator);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        checkBox_capitalization = (CheckBox)findViewById(R.id.checkBox_capitalization);
+        checkBox_capitalization = (com.gc.materialdesign.views.CheckBox)findViewById(R.id.checkBox_capitalization);
 
-        checkBox_replenishment = (CheckBox) findViewById(R.id.checkBox_replenishment);
-        checkBox_replenishment.setOnCheckedChangeListener(this);
+        checkBox_replenishment = (com.gc.materialdesign.views.CheckBox) findViewById(R.id.checkBox_replenishment);
+        checkBox_replenishment.setOncheckListener(this);
 
 
         ll_replenisment1 = (LinearLayout) findViewById(R.id.ll_replenisment1);
@@ -59,7 +61,7 @@ public class CalculatorActivity extends ActionBarActivity implements
         et_periodOfDeposit = (EditText) findViewById(R.id.et_periodOfDeposit);
         et_replenishmentAmount = (EditText) findViewById(R.id.et_replenishmentAmount);
 
-        calculate = (CardView)findViewById(R.id.calculate);
+        calculate = (Button)findViewById(R.id.calculate);
         calculate.setOnClickListener(this);
 
         replenishment_period = getResources().getStringArray(R.array.deposit_period);
@@ -84,21 +86,13 @@ public class CalculatorActivity extends ActionBarActivity implements
             }
         });
 
-    }
+        toast = Toast.makeText(getApplicationContext(),R.string.calculate_data_warning, Toast.LENGTH_LONG);
 
 
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(checkBox_replenishment.isChecked()){
-            ll_replenisment1.setVisibility(View.VISIBLE);
-            ll_replenisment2.setVisibility(View.VISIBLE);
-        }
-        else {
-            ll_replenisment1.setVisibility(View.INVISIBLE);
-            ll_replenisment2.setVisibility(View.INVISIBLE);
-        }
 
     }
+
+
 
     public boolean NecessaryDataCheck(){
         final int necessaryLines=3;
@@ -146,8 +140,8 @@ public class CalculatorActivity extends ActionBarActivity implements
             replenishment = Float.parseFloat(replenishmentToParse);
         }
 
-        if (!checkBox_capitalization.isChecked()) {
-            if (!checkBox_replenishment.isChecked()) {
+        if (!checkBox_capitalization.isCheck()) {
+            if (!checkBox_replenishment.isCheck()) {
                 result = amount + (amount * (rate / 100) * (period / 365));
             } else {
                 float monthlyBonus = amount * (rate / 100 / 12);
@@ -189,8 +183,8 @@ public class CalculatorActivity extends ActionBarActivity implements
 
 
         }
-        if (checkBox_capitalization.isChecked()) {
-            if (!checkBox_replenishment.isChecked()) {
+        if (checkBox_capitalization.isCheck()) {
+            if (!checkBox_replenishment.isCheck()) {
                 for (float i = period; i >= 30; i = i - 30) {
                     amount = amount + ((amount * (rate / 100) / 12));
                 }
@@ -198,55 +192,56 @@ public class CalculatorActivity extends ActionBarActivity implements
                 result = amount;
             }
 
-            if (checkBox_replenishment.isChecked()) {
-                float monthlyBonus = amount * (rate / 100 / 12);
-                int selected = spinner_replenishment.getSelectedItemPosition();
-                switch (selected) {
-                    case 0:
-                        for (float i = period; i >= 30; i = i - 30) {
+                 if (checkBox_replenishment.isCheck()) {
+                 float monthlyBonus = amount * (rate / 100 / 12);
+              int selected = spinner_replenishment.getSelectedItemPosition();
+              switch (selected) {
+                  case 0:
+                      for (float i = period; i >= 30; i = i - 30) {
 
-                            amount = amount + ((amount * (rate / 100) / 12));
-                            amount = amount + replenishment * 4;
+                              amount = amount + ((amount * (rate / 100) / 12));
+                          amount = amount + replenishment * 4;
 
-                        }
-                        result = amount;
-                        break;
-                    case 1:
-                        for (float i = period; i >= 30; i = i - 30) {
-                            amount = amount + ((amount * (rate / 100) / 12));
-                            amount = amount + replenishment;
+                          }
+                      result = amount;
+                      break;
+                  case 1:
+                      for (float i = period; i >= 30; i = i - 30) {
+                          amount = amount + ((amount * (rate / 100) / 12));
+                          amount = amount + replenishment;
 
-                        }
-                        result = amount;
-                        break;
-                    case 2:
-                        int innerCounter = 0;
-                        for (float i = period; i >= 30; i = i - 30) {
-                            amount = amount + ((amount * (rate / 100) / 12));
-                            innerCounter++;
-                            if (innerCounter == 3 || innerCounter == 6 || innerCounter == 9 ||
-                                    innerCounter == 12 || innerCounter == 15 || innerCounter == 18) {
-                                amount = amount + replenishment;
-                            }
-
-
-                        }
-                        result = amount;
-                        break;
+                          }
+                      result = amount;
+                      break;
+                  case 2:
+                      int innerCounter = 0;
+                      for (float i = period; i >= 30; i = i - 30) {
+                          amount = amount + ((amount * (rate / 100) / 12));
+                          innerCounter++;
+                          if (innerCounter == 3 || innerCounter == 6 || innerCounter == 9 ||
+                                  innerCounter == 12 || innerCounter == 15 || innerCounter == 18) {
+                              amount = amount + replenishment;
+                          }
 
 
-                }
-
-            }
-
-
+                         }
+                          result = amount;
+                      break;
 
 
+              }
+
+             }
+
+
+
+
+
+          }
+
+ return result;
 
         }
-
-        return result;
-    }
 
 
 
@@ -255,17 +250,18 @@ public class CalculatorActivity extends ActionBarActivity implements
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.calculate:
+
                 boolean necessaryLines =NecessaryDataCheck();
                 if(necessaryLines==true) {
                     float calculationResult = Calculation();
-                    String textToShow = Float.toString(calculationResult);
+
 
                     boolean invested_capitalization=false;
-                    if(checkBox_capitalization.isChecked()){
+                    if(checkBox_capitalization.isCheck()){
                         invested_capitalization=true;
                     }
                     boolean invested_replenishment=false;
-                    if(checkBox_replenishment.isChecked()){
+                    if(checkBox_replenishment.isCheck()){
                         invested_replenishment=true;
                     }
 
@@ -282,7 +278,10 @@ public class CalculatorActivity extends ActionBarActivity implements
 
                 }
                 else {
-                    Toast.makeText(this, R.string.calculate_data_warning, Toast.LENGTH_LONG).show();
+
+
+
+                    toast.show();
                 }
                 break;
 
@@ -290,7 +289,25 @@ public class CalculatorActivity extends ActionBarActivity implements
 
 
 
+
+
     }
+
+    @Override
+    protected void onDestroy()
+    {
+        toast.cancel();
+        super.onDestroy();
+
+
+    }
+
+    @Override
+    protected void onStop () {
+        super.onStop();
+        toast.cancel();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -298,6 +315,18 @@ public class CalculatorActivity extends ActionBarActivity implements
         return true;
     }
 
+    @Override
+    public void onCheck(com.gc.materialdesign.views.CheckBox checkBox, boolean b) {
+        if(checkBox_replenishment.isCheck()){
+            ll_replenisment1.setVisibility(View.VISIBLE);
+            ll_replenisment2.setVisibility(View.VISIBLE);
+        }
+        else {
+            ll_replenisment1.setVisibility(View.INVISIBLE);
+            ll_replenisment2.setVisibility(View.INVISIBLE);
+        }
+
+    }
 }
 
 
