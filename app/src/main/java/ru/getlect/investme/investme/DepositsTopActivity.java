@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
-import com.gc.materialdesign.views.ButtonFloat;
-
 /**
  * Created by fj on 21.05.2015.
  */
@@ -15,7 +13,7 @@ public class DepositsTopActivity extends ActionBarActivity {
   //          "Потенциал", "Победа", "СмартВклад" };
 
 
-    ButtonFloat btnFloatCurrency;
+ //   ButtonFloat btnFloatCurrency;
 
 
 
@@ -24,10 +22,10 @@ public class DepositsTopActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currencies);
 
-        setTitle(R.string.top_deposits);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        setTitle(R.string.top_deposits);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btnFloatCurrency = (ButtonFloat)findViewById(R.id.buttonFloat);
+ //       btnFloatCurrency = (ButtonFloat)findViewById(R.id.buttonFloat);
 
        // ListView lvTop = (ListView)findViewById(R.id.lvTop);
 

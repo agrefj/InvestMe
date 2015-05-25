@@ -1,8 +1,12 @@
 package ru.getlect.investme.investme;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,7 +46,16 @@ public class CalculatorActivity extends ActionBarActivity implements
         setContentView(R.layout.activity_deposit_calc);
 
         setTitle(R.string.deposit_calculator);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_deposit_calc);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        upArrow.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
 
         checkBox_capitalization = (com.gc.materialdesign.views.CheckBox)findViewById(R.id.checkBox_capitalization);
 

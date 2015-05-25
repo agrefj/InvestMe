@@ -1,7 +1,11 @@
 package ru.getlect.investme.investme;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 /**
@@ -15,7 +19,17 @@ public class CurrencyActivity extends ActionBarActivity {
         setContentView(R.layout.activity_currency);
 
         setTitle(R.string.currency);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_currencies);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        upArrow.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+
 
 
     }
