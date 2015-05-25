@@ -45,7 +45,8 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
                 InvestMeContract.DepositsEntry.COLUMN_MIN_PERIOD_DAYS + " INTEGER," +
                 InvestMeContract.DepositsEntry.COLUMN_CAPITALIZATION + " INTEGER DEFAULT 0," +
                 InvestMeContract.DepositsEntry.COLUMN_REPLENISHMENT + " INTEGER DEFAULT 0," +
-                InvestMeContract.DepositsEntry.COLUMN_WITHDRAWAL + " INTEGER DEFAULT 0" +
+                InvestMeContract.DepositsEntry.COLUMN_WITHDRAWAL + " INTEGER DEFAULT 0," +
+                InvestMeContract.DepositsEntry.COLUMN_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP" +
                 " );";
 
         db.execSQL(SQL_CREATE_BANKS_TABLE);

@@ -6,6 +6,8 @@ import android.view.MenuItem;
 
 import com.gc.materialdesign.views.ButtonFloat;
 
+import ru.getlect.investme.investme.sync.InvestMeSyncAdapter;
+
 /**
  * Created by fj on 21.05.2015.
  */
@@ -25,6 +27,9 @@ public class DepositsTopActivity extends ActionBarActivity {
         setContentView(R.layout.activity_currencies);
 
         setTitle(R.string.top_deposits);
+
+        InvestMeSyncAdapter.syncImmediately(getApplicationContext());
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnFloatCurrency = (ButtonFloat)findViewById(R.id.buttonFloat);

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">InvestMe</string>
 
+
+
+    <string name="content_authority">ru.getlect.investme.investme</string>
+    <string name="sync_account_type" translatable="false">ru.getlect.investme.investme</string>
+
     <string name="action_settings">Settings</string>
 
     //mainActivity strings
@@ -50,6 +55,7 @@
     <string name="cur_oil">Brent oil</string>
     <string name="cur_gold">Gold</string>
     <string name="cur_silver">Silver</string>
+
 
 
 
