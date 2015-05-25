@@ -72,7 +72,7 @@ public class CalculatorActivity extends ActionBarActivity implements
 
         spinner_replenishment = (Spinner) findViewById(R.id.spinner_replenishment);
         spinner_replenishment.setAdapter(spinner_adapter);
-        spinner_replenishment.setSelection(0);
+        spinner_replenishment.setSelection(1);
         spinner_replenishment.setPrompt("Частота пополнения");
         spinner_replenishment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
