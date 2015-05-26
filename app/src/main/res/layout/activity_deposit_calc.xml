@@ -12,12 +12,16 @@
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
         android:minHeight="?android:attr/actionBarSize"
         android:background="@color/action_bar_color"
         android:id="@+id/toolbar_deposit_calc"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
 
         >
+
+
+
 
     </android.support.v7.widget.Toolbar>
 
@@ -287,7 +291,7 @@
             android:paddingBottom="8.5dp"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
-            android:background="#1E88E5"
+            android:background="#3F53B5"
             android:text="@string/calculate" />
 
     </LinearLayout>

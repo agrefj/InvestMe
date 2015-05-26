@@ -18,10 +18,11 @@ public class CurrencyActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency);
 
-        setTitle(R.string.currency);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_currencies);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.currency);
         toolbar.setTitleTextColor(Color.WHITE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -47,6 +47,7 @@ public class CalculatorActivity extends ActionBarActivity implements
 
         setTitle(R.string.deposit_calculator);
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_deposit_calc);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
