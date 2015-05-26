@@ -22,6 +22,8 @@ public class DepositsTopActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currencies);
 
+        InvestMeSyncAdapter.syncImmediately(getApplicationContext())
+
 //        setTitle(R.string.top_deposits);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
