@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
+import ru.getlect.investme.investme.sync.InvestMeSyncAdapter;
+
 /**
  * Created by fj on 21.05.2015.
  */
@@ -22,7 +24,7 @@ public class DepositsTopActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currencies);
 
-        InvestMeSyncAdapter.syncImmediately(getApplicationContext())
+        InvestMeSyncAdapter.syncImmediately(getApplicationContext());
 
 //        setTitle(R.string.top_deposits);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
