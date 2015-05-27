@@ -45,6 +45,7 @@ public class CalculatorActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit_calc);
 
+        setTitle(R.string.deposit_calculator);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_deposit_calc);
         setSupportActionBar(toolbar);

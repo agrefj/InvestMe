@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +14,6 @@ import android.widget.TextView;
  */
 public class CurrencyDetail extends ActionBarActivity {
 
-    TextView tv_choosed_currency;
 
     TextView tv_date_1;
     TextView tv_date_2;
@@ -29,6 +27,8 @@ public class CurrencyDetail extends ActionBarActivity {
     TextView tv_rate_3;
     TextView tv_rate_4;
 
+    TextView tv_choosed_currency;
+
     ImageView iv_choosed_logo;
 
     String[] dates;
@@ -41,6 +41,8 @@ public class CurrencyDetail extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_detail);
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_currency_detail);
         setSupportActionBar(toolbar);
@@ -64,6 +66,7 @@ public class CurrencyDetail extends ActionBarActivity {
         tv_rate_3 = (TextView) findViewById(R.id.tv_rate_3);
         tv_rate_4 = (TextView) findViewById(R.id.tv_rate_4);
 
+
         iv_choosed_logo = (ImageView)findViewById(R.id.iv_choosed_logo);
 
 
@@ -73,11 +76,7 @@ public class CurrencyDetail extends ActionBarActivity {
 
         CurrentChanger(id);
         LogoChanger(id);
-        DatesChanger(id);
-
-
-
-
+        DataChanger(id);
 
 
 
@@ -128,39 +127,64 @@ public class CurrencyDetail extends ActionBarActivity {
 
     }
 
-    public void DatesChanger(int id){
-        if(id==0){
+    public void DataChanger(int id){
+
+
             tv_сurrent_value.setText(currencies[0]);
 
-            tv_date_1.setText(dates[1]);
-            tv_date_2.setText(dates[2]);
-            tv_date_3.setText(dates[3]);
-            tv_date_4.setText(dates[4]);
+        tv_date_1.setText(dates[1]);
+        tv_date_2.setText(dates[2]);
+        tv_date_3.setText(dates[3]);
+        tv_date_4.setText(dates[4]);
 
-            tv_rate_1.setText(currencies[1]);
-            tv_rate_2.setText(currencies[2]);
-            tv_rate_3.setText(currencies[3]);
-            tv_rate_4.setText(currencies[4]);
+        tv_rate_1.setText(currencies[1]);
+        tv_rate_2.setText(currencies[2]);
+        tv_rate_3.setText(currencies[3]);
+        tv_rate_4.setText(currencies[4]);
 
-            int test = dates.length;
+        ColorChanger();
 
-            String testStr = String.valueOf(test);
-            final String LOG_TAG = CurrencyDetail.class.getSimpleName();
-            Log.d(LOG_TAG,testStr);
-        }
-        if(id==1){
-            tv_choosed_currency.setText(R.string.cur_euro);
-        }
-        if(id==2){
-            tv_choosed_currency.setText(R.string.cur_gold);
-        }
-        if(id==3){
-            tv_choosed_currency.setText(R.string.cur_silver);
-        }
-        if(id==4){
-            tv_choosed_currency.setText(R.string.cur_oil);
-        }
+
+
     }
+
+    public void ColorChanger(){
+      Float[] rates = new Float[5];
+       for(int i=0; i<5; i++){
+           rates[i] = Float.parseFloat(currencies[i]);
+       }
+
+        if(rates[0]>rates[1]){
+            tv_сurrent_value.setTextColor(getResources().getColor(R.color.currency_up));
+        }
+        if(rates[0]<rates[1]){
+            tv_сurrent_value.setTextColor(getResources().getColor(R.color.currency_down));
+        }
+
+        if(rates[1]>rates[2]){
+           tv_rate_1.setTextColor(getResources().getColor(R.color.currency_up));
+        }
+        if(rates[1]<rates[2]){
+            tv_rate_1.setTextColor(getResources().getColor(R.color.currency_down));
+        }
+
+        if(rates[2]>rates[3]){
+            tv_rate_2.setTextColor(getResources().getColor(R.color.currency_up));
+        }
+        if(rates[2]<rates[3]){
+            tv_rate_2.setTextColor(getResources().getColor(R.color.currency_down));
+        }
+
+        if(rates[3]>rates[4]){
+            tv_rate_3.setTextColor(getResources().getColor(R.color.currency_up));
+        }
+        if(rates[3]<rates[4]){
+            tv_rate_3.setTextColor(getResources().getColor(R.color.currency_down));
+        }
+
+    }
+
+
 
 
 }

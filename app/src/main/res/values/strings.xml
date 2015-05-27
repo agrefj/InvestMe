@@ -45,6 +45,7 @@
     <string name="amount_of_money">Amount of money:</string>
     <string name="effective_IR">Effective interest rate:</string>
     <string name="interest_earned">Interest earned:</string>
+    <string name="withdrawal">Withdrawal</string>
 
 
     //Currency activity
@@ -57,6 +58,11 @@
 
     //Currency detail
     <string name="current">Current</string>
+
+    //Deposits top
+    <string name="maxRate">Maximum rate:</string>
+    <string name="minAmount">Minimum amount:</string>
+    <string name="minPeriod">Minimum peropd, months:</string>
 
 
 

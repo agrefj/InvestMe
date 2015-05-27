@@ -45,6 +45,7 @@
             android:screenOrientation="portrait"/>
 
 
+
         <provider
             android:name=".data.InvestMeProvider"
             android:authorities="@string/content_authority"

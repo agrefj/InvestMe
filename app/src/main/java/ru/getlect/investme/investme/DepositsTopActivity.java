@@ -1,5 +1,6 @@
 package ru.getlect.investme.investme;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
@@ -9,14 +10,7 @@ import ru.getlect.investme.investme.sync.InvestMeSyncAdapter;
 /**
  * Created by fj on 21.05.2015.
  */
-public class DepositsTopActivity extends ActionBarActivity {
-
-   // String[] deposits = { "Подари жизнь", "Пополняй", "Сохраняй", "Все включено", "Накопительный +",
-  //          "Потенциал", "Победа", "СмартВклад" };
-
-
- //   ButtonFloat btnFloatCurrency;
-
+public class DepositsTopActivity extends ActionBarActivity implements InvestMeFragment.Callback {
 
 
     @Override
@@ -26,22 +20,25 @@ public class DepositsTopActivity extends ActionBarActivity {
 
         InvestMeSyncAdapter.syncImmediately(getApplicationContext());
 
-//        setTitle(R.string.top_deposits);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+ //       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_deposits);
+ //       setSupportActionBar(toolbar);
+ //       getSupportActionBar().setTitle(R.string.top_deposits);
+ //       toolbar.setTitleTextColor(Color.WHITE);
+ //       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
- //       btnFloatCurrency = (ButtonFloat)findViewById(R.id.buttonFloat);
-
-       // ListView lvTop = (ListView)findViewById(R.id.lvTop);
-
-      //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-//deposits);
-
-
-   // lvTop.setAdapter(adapter);
+ //       final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+ //       upArrow.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.SRC_ATOP);
+ //       getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
 
+        InvestMeSyncAdapter.syncImmediately(getApplicationContext());
 
-}
+
+    }
+
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -49,4 +46,9 @@ public class DepositsTopActivity extends ActionBarActivity {
         return true;
     }
 
+
+    @Override
+    public void onItemSelected(Uri classUri) {
+
+    }
 }

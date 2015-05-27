@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/fragment_deposits"
+    android:name="ru.getlect.investme.investme.InvestMeFragment"
     android:layout_height="match_parent"
-    android:id="@+id/lvTop"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:padding="16dp"
-    android:background="#ffcdd3de"
-    >
+    android:layout_weight="1"
+    tools:context="ru.getlect.investme.investme.InvestMeFragment"
+    tools:layout="@android:layout/list_content"
+    />
 
 
 
-</ListView>
+
+
+
+
+

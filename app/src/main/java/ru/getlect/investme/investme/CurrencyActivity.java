@@ -41,7 +41,7 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
     String[] dollarCurrenciesArray = new String[5];
     String[] dollarDatesArray = new String[5];
     String[] oilCurrenciesArray = new String[5];
-    String[] oilDatesArray = new String[5];
+    String[] oilDatesArray= new String[5];;
     String[] goldCurrenciesArray = new String[5];
     String[] goldDatesArray = new String[5];
     String[] silverCurrenciesArray = new String[5];
@@ -84,12 +84,6 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
         FetchCurrenciesTask mt = new FetchCurrenciesTask();
         mt.execute();
 
-
-
-
-
-
-
     }
 
     @Override
@@ -107,6 +101,7 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
                 intent.putExtra("Currencies", dollarCurrenciesArray);
                 intent.putExtra("Dates", dollarDatesArray);
                 id = 0;
+
                 break;
             case R.id.currncy_ll_euro:
                 intent.putExtra("Currencies", euroCurrenciesArray);
@@ -149,7 +144,6 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
 
         @Override
         protected String doInBackground(Void... params) {
-
 
             try {
 
@@ -204,11 +198,6 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
         protected void onPostExecute(String currenciesJsonStr){
         super.onPostExecute(currenciesJsonStr);
 
-            currenciesJsonStr = currenciesJsonStr.replaceAll("\n", "");
-            currenciesJsonStr = currenciesJsonStr.replaceAll("\t", "");
-            currenciesJsonStr = currenciesJsonStr.replaceAll(" ", "");
-
-
 
             final String REP_CURRENCIES = "currency";
             final String REP_CODE = "code";
@@ -219,6 +208,9 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
 
 
             try {
+                currenciesJsonStr = currenciesJsonStr.replaceAll("\n", "");
+                currenciesJsonStr = currenciesJsonStr.replaceAll("\t", "");
+                currenciesJsonStr = currenciesJsonStr.replaceAll(" ", "");
                 JSONObject currenciesJSON = new JSONObject(currenciesJsonStr);
                 JSONArray currenciesArray = currenciesJSON.getJSONArray(REP_CURRENCIES);
 
@@ -238,7 +230,7 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
                 JSONArray silverDataArray = silverObject.getJSONArray(REP_DATA);
 
 
-                for(int i = 0; i < 4; i++ ){
+                for(int i = 0; i < 5; i++ ){
                     JSONObject euroCurObject= euroDataArray.getJSONObject(i);
                     euroCurrenciesArray[i] = euroCurObject.getString(REP_RATE);
                     euroDatesArray[i] = euroCurObject.getString(REP_DATE);
@@ -258,6 +250,7 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
                     JSONObject silverCurObject= silverDataArray.getJSONObject(i);
                     silverCurrenciesArray[i] = silverCurObject.getString(REP_RATE);
                     silverDatesArray[i] = silverCurObject.getString(REP_DATE);
+                    ArrayChecker();
 
                 }
 
@@ -272,13 +265,14 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
             catch (JSONException e) {
                 e.printStackTrace();
             }
+            catch (NullPointerException e){
+                e.printStackTrace();
+            }
+
+
 
         }
-        currncy_ll_dollar.setOnClickListener(this);
-        currncy_ll_euro.setOnClickListener(this);
-        currncy_ll_gold.setOnClickListener(this);
-        currncy_ll_silver.setOnClickListener(this);
-        currncy_ll_oil.setOnClickListener(this);
+
     }
 
 
@@ -348,8 +342,20 @@ public class CurrencyActivity extends ActionBarActivity implements View.OnClickL
 
     }
 
+    public void ArrayChecker(){
+
+            currncy_ll_dollar.setOnClickListener(this);
+            currncy_ll_euro.setOnClickListener(this);
+            currncy_ll_gold.setOnClickListener(this);
+            currncy_ll_silver.setOnClickListener(this);
+            currncy_ll_oil.setOnClickListener(this);
 
 
-}
+        }
+    }
+
+
+
+
 
 

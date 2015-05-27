@@ -46,7 +46,13 @@
     //Currency detail
     <string name="current">Текущий</string>
 
+    <string name="withdrawal">Снятие</string>
 
+
+    //Deposits top
+    <string name="maxRate">Максимальная ставка:</string>
+    <string name="minAmount">Минимальная сумма:</string>
+    <string name="minPeriod">Минимальный срок, месяцев:</string>
 
 
 
