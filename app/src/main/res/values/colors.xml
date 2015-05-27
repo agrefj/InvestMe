@@ -3,5 +3,10 @@
     <color name="action_bar_color">#3F53B5</color>
     <color name="underline_color">#1E88E5</color>
 
+
+    <color name="currency_up">#ff24ee49</color>
+    <color name="currency_down">#ffee242a</color>
+
+
     <color name="color_white">#FFFFFFFF</color>
 </resources>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffeeeeee"
+    android:background="#ffcdd3de"
 
     >
 
@@ -50,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dollar"
-            android:id="@+id/" />
+            />
 
         <TextView
             android:layout_width="fill_parent"
@@ -65,9 +64,9 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="49,7919"
             android:textStyle="bold"
-            android:textColor="#ff24ee49"
+            android:id="@+id/tv_dollar_cur"
+            android:paddingLeft="5dp"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
             android:textSize="21dp" />
@@ -110,13 +109,12 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="55,2441"
             android:textStyle="bold"
-            android:textColor="#ff24ee49"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
             android:textSize="21dp"
-            />
+            android:paddingLeft="5dp"
+            android:id="@+id/tv_euro_cur" />
 
 
 
@@ -157,13 +155,12 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="60213,34"
             android:textStyle="bold"
-            android:textColor="#ff24ee49"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:textSize="21dp"
-          />
+            android:textSize="18dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/tv_gold_cur" />
 
 
 
@@ -207,12 +204,12 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="851,69"
             android:textStyle="bold"
-            android:textColor="#ffee242a"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:textSize="21dp"
+            android:textSize="18dp"
+            android:id="@+id/tv_silver_cur"
+            android:paddingLeft="5dp"
              />
 
 
@@ -252,12 +249,12 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="3232,98"
             android:textStyle="bold"
-            android:textColor="#ff24ee49"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:textSize="21dp" />
+            android:id="@+id/tv_oil_cur"
+            android:paddingLeft="5dp"
+            android:textSize="18dp" />
 
 
 

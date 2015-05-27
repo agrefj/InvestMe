@@ -22,7 +22,7 @@ public class DepositsTopActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_currencies);
+        setContentView(R.layout.activity_deposits_top);
 
         InvestMeSyncAdapter.syncImmediately(getApplicationContext());
 

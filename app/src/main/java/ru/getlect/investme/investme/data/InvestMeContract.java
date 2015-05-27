@@ -10,7 +10,7 @@ import android.provider.BaseColumns;
  */
 public class InvestMeContract {
 
-    public static final String DEPOSITS_URL = "http://159.253.23.26/DepositsQuery.json";
+    public static final String DEPOSITS_URL = "http://159.253.23.26/investme/depositsQuery.json";
 
     public static final String CONTENT_AUTHORITY = "ru.getlect.investme.investme";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
@@ -84,5 +84,6 @@ public class InvestMeContract {
             return Long.parseLong(uri.getPathSegments().get(1));
         }
     }
+
 
 }

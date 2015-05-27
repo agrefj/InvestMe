@@ -84,7 +84,14 @@ public class InvestMeProvider extends ContentProvider {
         Cursor resCursor;
         switch (sUriMatcher.match(uri)) {
             case BANKS: {
-                resCursor = sQueryBuilder.query(mOpenHelper.getReadableDatabase(), projection, null, null, null, null, sortOrder);
+                sQueryBuilder.setTables(InvestMeContract.BanksEntry.TABLE_NAME);
+                resCursor = sQueryBuilder.query(mOpenHelper.getReadableDatabase(),
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
                 break;
             }
             case BANK_DEPOSITS: {
@@ -139,11 +146,11 @@ public class InvestMeProvider extends ContentProvider {
         Uri resUri;
         switch (match) {
             case BANKS: {
-                long _id = db.insert(InvestMeContract.BanksEntry.TABLE_NAME, null, values);
+                long _id = db.insertOrThrow(InvestMeContract.BanksEntry.TABLE_NAME, null, values);
                 if (_id != -1) {
                     resUri = InvestMeContract.BanksEntry.buildBankById((int) _id);
                 } else {
-                    throw new SQLException("FAIL.CANT INSERT PROFESSOR");
+                    throw new SQLException("FAIL.CANT INSERT");
                 }
                 break;
             }
@@ -152,7 +159,7 @@ public class InvestMeProvider extends ContentProvider {
                 if (_id != -1) {
                     resUri = InvestMeContract.DepositsEntry.buildDepositById( (int) _id);
                 } else {
-                    throw new SQLException("FAIL.CANT INSERT PROFESSOR");
+                    throw new SQLException("FAIL.CANT INSERT");
                 }
                 break;
             }

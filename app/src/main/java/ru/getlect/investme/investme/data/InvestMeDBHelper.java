@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class InvestMeDBHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "investme.db";
-    private static final int DB_VERSION = 4;
+    private static final int DB_VERSION = 7;
 
 
 
@@ -26,18 +26,14 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_BANKS_TABLE = "CREATE TABLE " + InvestMeContract.BanksEntry.TABLE_NAME +
                 " (" + InvestMeContract.BanksEntry._ID + " INTEGER PRIMARY KEY," +
                 InvestMeContract.BanksEntry.COLUMN_BANK_ABBR + " TEXT UNIQUE NOT NULL," +
-                InvestMeContract.BanksEntry.COLUMN_BANK_FULL_NAME + " TEXT UNIQUE NOT NULL" +
+                InvestMeContract.BanksEntry.COLUMN_BANK_FULL_NAME + " TEXT NOT NULL" +
                 " );";
 
 
         final String SQL_CREATE_DEPOSITS_TABLE = "CREATE TABLE " + InvestMeContract.DepositsEntry.TABLE_NAME +
                 " (" +
-                InvestMeContract.DepositsEntry._ID + " INTEGER PRIMART KEY," +
+                InvestMeContract.DepositsEntry._ID + " INTEGER PRIMARY KEY," +
                 InvestMeContract.DepositsEntry.COLUMN_BANK_ID + " INTEGER NOT NULL," +
-
-                //Set up the bank column as a foreign key to bank table
-                " FOREIGN KEY (" + InvestMeContract.DepositsEntry.COLUMN_BANK_ID + ") REFERENCES " +
-                InvestMeContract.BanksEntry.TABLE_NAME + " (" + InvestMeContract.BanksEntry._ID + "), " +
 
                 InvestMeContract.DepositsEntry.COLUMN_DEPOSIT_NAME + " TEXT NOT NULL," +
                 InvestMeContract.DepositsEntry.COLUMN_MAX_RATE + " INTEGER NOT NULL," +
@@ -46,7 +42,12 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
                 InvestMeContract.DepositsEntry.COLUMN_CAPITALIZATION + " INTEGER DEFAULT 0," +
                 InvestMeContract.DepositsEntry.COLUMN_REPLENISHMENT + " INTEGER DEFAULT 0," +
                 InvestMeContract.DepositsEntry.COLUMN_WITHDRAWAL + " INTEGER DEFAULT 0," +
-                InvestMeContract.DepositsEntry.COLUMN_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP" +
+                InvestMeContract.DepositsEntry.COLUMN_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP," +
+
+                //Set up the bank column as a foreign key to bank table
+                " FOREIGN KEY (" + InvestMeContract.DepositsEntry.COLUMN_BANK_ID + ") REFERENCES " +
+                InvestMeContract.BanksEntry.TABLE_NAME + " (" + InvestMeContract.BanksEntry._ID + ") " +
+
                 " );";
 
         db.execSQL(SQL_CREATE_BANKS_TABLE);
@@ -65,9 +66,4 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
 
 
 }
-
-
-
-
-
 

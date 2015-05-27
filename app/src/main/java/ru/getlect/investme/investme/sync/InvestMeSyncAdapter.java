@@ -114,12 +114,10 @@ public class InvestMeSyncAdapter extends AbstractThreadedSyncAdapter {
     private long addBank(String bankName, String bankFullName) {
         long bankId;
 
-        final String JSON_BANK_ABBR = "bank";
-        final String JSON_BANK_FULL_NAME = "bank_full_name";
 
         Cursor bankCursor = getContext().getContentResolver().query(
                 InvestMeContract.BanksEntry.CONTENT_URI,
-                new String[]{InvestMeContract.BanksEntry._ID},
+                new String[]{InvestMeContract.BanksEntry.TABLE_NAME + "." + InvestMeContract.BanksEntry._ID},
                 InvestMeContract.BanksEntry.COLUMN_BANK_ABBR + " = ?",
                 new String[]{bankName},
                 null
@@ -130,6 +128,10 @@ public class InvestMeSyncAdapter extends AbstractThreadedSyncAdapter {
             bankId = bankCursor.getLong(IdIndex);
         } else {
             ContentValues values = new ContentValues();
+
+
+            values.put(InvestMeContract.BanksEntry.COLUMN_BANK_ABBR, bankName);
+            values.put(InvestMeContract.BanksEntry.COLUMN_BANK_FULL_NAME, bankFullName);
 
             Uri insertedUri = getContext().getContentResolver().insert(
                     InvestMeContract.BanksEntry.CONTENT_URI,
@@ -143,7 +145,7 @@ public class InvestMeSyncAdapter extends AbstractThreadedSyncAdapter {
     private String[] formatResponseJSON(String JSONStr)
             throws JSONException {
 
-        final String ARR_DEPOSITS = "deposits";
+        final String ARR_DEPOSITS        = "deposits";
 
 
         final String STR_BANK            = "bank";
@@ -203,15 +205,7 @@ public class InvestMeSyncAdapter extends AbstractThreadedSyncAdapter {
             Log.d(LOG_TAG, "FetchTask Complete. " + cVVector.size() + " Inserted");
 
             String[] resultStrs = new String[cVVector.size()];
-            /*for (int i = 0; i < cVVector.size(); i++) {
-                ContentValues values = cVVector.elementAt(i);
-                resultStrs[i] = values.getAsString(InvestMeContract.DepositsEntry.COLUMN_SUBJECT_REAL_NAME) +
-                        " - " +
-                        values.getAsString(InvestMeContract.DepositsEntry.COLUMN_START_TIME) + "-" +
-                        values.getAsString(InvestMeContract.DepositsEntry.COLUMN_FINISH_TIME) + " in "    +
-                        values.getAsString(InvestMeContract.DepositsEntry.COLUMN_BUILDING_NUMBER) + "-" +
-                        values.getAsString(InvestMeContract.DepositsEntry.COLUMN_ROOM);
-            }*/
+
             return resultStrs;
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);

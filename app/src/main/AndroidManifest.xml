@@ -31,11 +31,18 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".CalculatorResult"
-            android:parentActivityName=".CalculatorActivity"/>
+            android:parentActivityName=".CalculatorActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".CurrencyActivity"/>
+        <activity android:name=".CurrencyActivity"
+        android:screenOrientation="portrait"/>
 
-        <activity android:name=".DepositsTopActivity"/>
+        <activity android:name=".CurrencyDetail"
+            android:parentActivityName=".CurrencyActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".DepositsTopActivity"
+            android:screenOrientation="portrait"/>
 
 
         <provider

@@ -43,7 +43,8 @@
     <string name="cur_gold">Золото</string>
     <string name="cur_silver">Серебро</string>
 
-
+    //Currency detail
+    <string name="current">Текущий</string>
 
 
 

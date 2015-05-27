@@ -5,6 +5,7 @@
     android:id="@+id/lvTop"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:padding="16dp"
+    android:background="#ffcdd3de"
     >
 
 
