@@ -33,7 +33,6 @@ public class InvestMeFragment extends Fragment implements LoaderManager.LoaderCa
     private static final int INVESTME_LOADER_ID = 0;
 
     private static final String[] __COLUMNS = {
-            InvestMeContract.DepositsEntry.TABLE_NAME + "." +InvestMeContract.DepositsEntry._ID,
             InvestMeContract.DepositsEntry.COLUMN_BANK_ID,
             InvestMeContract.DepositsEntry.COLUMN_DEPOSIT_NAME,
             InvestMeContract.DepositsEntry.COLUMN_MAX_RATE,

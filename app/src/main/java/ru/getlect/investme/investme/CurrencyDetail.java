@@ -1,11 +1,16 @@
 package ru.getlect.investme.investme;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +39,11 @@ public class CurrencyDetail extends ActionBarActivity {
     String[] dates;
     String[] currencies;
 
+    private static final String INVEST_SHARE_HASHTAG = " #InvestMe";
+    private String mCurrencyStr;
+    private String share_info;
+    private String share_currency;
+
 
 
 
@@ -41,6 +51,7 @@ public class CurrencyDetail extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_detail);
+
 
 
 
@@ -111,26 +122,31 @@ public class CurrencyDetail extends ActionBarActivity {
     public void CurrentChanger(int id) {
         if(id==0){
             tv_choosed_currency.setText(R.string.cur_dollar);
+            share_currency = getResources().getString(R.string.cur_dollar);
         }
         if(id==1){
             tv_choosed_currency.setText(R.string.cur_euro);
+            share_currency = getResources().getString(R.string.cur_euro);
         }
         if(id==2){
             tv_choosed_currency.setText(R.string.cur_gold);
+            share_currency = getResources().getString(R.string.cur_gold);
         }
         if(id==3){
             tv_choosed_currency.setText(R.string.cur_silver);
+            share_currency = getResources().getString(R.string.cur_silver);
         }
         if(id==4){
             tv_choosed_currency.setText(R.string.cur_oil);
+            share_currency = getResources().getString(R.string.cur_oil);
         }
 
     }
 
     public void DataChanger(int id){
 
-
-            tv_сurrent_value.setText(currencies[0]);
+        mCurrencyStr = String.valueOf(currencies[0]);
+        tv_сurrent_value.setText(currencies[0]);
 
         tv_date_1.setText(dates[1]);
         tv_date_2.setText(dates[2]);
@@ -143,6 +159,9 @@ public class CurrencyDetail extends ActionBarActivity {
         tv_rate_4.setText(currencies[4]);
 
         ColorChanger();
+
+        share_info = getResources().getString(R.string.share_info);
+
 
 
 
@@ -185,6 +204,37 @@ public class CurrencyDetail extends ActionBarActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.detailfragment, menu);
+        MenuItem menuItem = menu.findItem(R.id.action_share);
+        ShareActionProvider mShareActionProvider =
+                (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+        if (mShareActionProvider != null) {
+            mShareActionProvider.setShareIntent(createShareInvestIntent());
+        } else {
+        }
+        return true;
+    }
+
+
+
+
+    private Intent createShareInvestIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, share_info + " " + share_currency + " " +
+                        mCurrencyStr + " " + INVEST_SHARE_HASHTAG);
+
+        return shareIntent;
+    }
 
 
 }
+
+
+
+
+

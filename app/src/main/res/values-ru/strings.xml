@@ -45,7 +45,8 @@
 
     //Currency detail
     <string name="current">Текущий</string>
-
+    <string name="share_info">Текущая цена за </string>
+    <string name="action_share">Поделиться</string>
     <string name="withdrawal">Снятие</string>
 
 
