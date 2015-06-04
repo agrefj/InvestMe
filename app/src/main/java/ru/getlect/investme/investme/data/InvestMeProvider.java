@@ -29,7 +29,11 @@ public class InvestMeProvider extends ContentProvider {
                 InvestMeContract.BanksEntry.TABLE_NAME + " INNER JOIN " +
                         InvestMeContract.DepositsEntry.TABLE_NAME + " ON " +
                         InvestMeContract.BanksEntry.TABLE_NAME + '.' + InvestMeContract.BanksEntry._ID +
-                        " = " + InvestMeContract.DepositsEntry.TABLE_NAME + "." + InvestMeContract.DepositsEntry.COLUMN_BANK_ID);
+                        " = " + InvestMeContract.DepositsEntry.TABLE_NAME + "." + InvestMeContract.DepositsEntry.COLUMN_BANK_ID
+                        //       +                 " INNER JOIN " + InvestMeContract.BanksEntry.TABLE_NAME + "." + InvestMeContract.BanksEntry._ID +
+//                        " =" + InvestMeContract.DepositsEntry.TABLE_NAME + "." +
+//                        InvestMeContract.DepositsEntry.COLUMN_BANK_ABBR
+        );
     } //"banks INNER JOIN deposits ON banks._ID = deposits.bank_id";
 
 
@@ -84,14 +88,15 @@ public class InvestMeProvider extends ContentProvider {
         Cursor resCursor;
         switch (sUriMatcher.match(uri)) {
             case BANKS: {
-                sQueryBuilder.setTables(InvestMeContract.BanksEntry.TABLE_NAME);
-                resCursor = sQueryBuilder.query(mOpenHelper.getReadableDatabase(),
+                resCursor = mOpenHelper.getReadableDatabase().query(
+                        InvestMeContract.BanksEntry.TABLE_NAME,
                         projection,
                         selection,
                         selectionArgs,
                         null,
                         null,
-                        sortOrder);
+                        sortOrder
+                );
                 break;
             }
             case BANK_DEPOSITS: {
@@ -104,7 +109,10 @@ public class InvestMeProvider extends ContentProvider {
             }
 
             case DEPOSITS: {
-                resCursor = sQueryBuilder.query(mOpenHelper.getReadableDatabase(), projection, null, null, null, null, sortOrder);
+                resCursor = mOpenHelper.getReadableDatabase().query(
+                   InvestMeContract.DepositsEntry.TABLE_NAME,
+                        projection, null, null, null, null, sortOrder
+                );
                 break;
             }
             case DEPOSIT_WITH_ID: {
@@ -178,11 +186,11 @@ public class InvestMeProvider extends ContentProvider {
         if (selection == null) selection = "1";
         switch (match) {
             case BANKS: {
-                deletedRows = db.delete(InvestMeContract.BanksEntry.TABLE_NAME, selection, selectionArgs);
+                db.execSQL("DELETE FROM " + InvestMeContract.BanksEntry.TABLE_NAME);
                 break;
             }
             case DEPOSITS: {
-                deletedRows = db.delete(InvestMeContract.DepositsEntry.TABLE_NAME, selection, selectionArgs);
+                db.execSQL("DELETE FROM " + InvestMeContract.DepositsEntry.TABLE_NAME);
                 break;
             }
             default: {
@@ -190,7 +198,7 @@ public class InvestMeProvider extends ContentProvider {
             }
         }
         getContext().getContentResolver().notifyChange(uri, null);
-        return deletedRows;
+        return 0;
     }
 
     @Override

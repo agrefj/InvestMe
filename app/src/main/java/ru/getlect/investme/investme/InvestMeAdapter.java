@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -50,6 +51,7 @@ public class InvestMeAdapter extends CursorAdapter {
         public final CheckBox capitalization;
         public final CheckBox replenishment;
         public final CheckBox withdrawal;
+        public final ImageView iv_bank_logo;
 
 
         public ViewHolder(View view) {
@@ -60,6 +62,7 @@ public class InvestMeAdapter extends CursorAdapter {
             capitalization = (CheckBox) view.findViewById(R.id.capitalization);
             replenishment = (CheckBox) view.findViewById(R.id.replenishment);
             withdrawal = (CheckBox) view.findViewById(R.id.withdrawal);
+            iv_bank_logo = (ImageView)view.findViewById(R.id.iv_bank_logo);
         }
 
     }
@@ -77,5 +80,14 @@ public class InvestMeAdapter extends CursorAdapter {
         viewHolder.maxRate.setText(cursor.getString(InvestMeFragment.COL_MAXRATE));
         viewHolder.minAmount.setText(cursor.getString(InvestMeFragment.COL_MIN_AMOUNT));
         viewHolder.minPeriod.setText(cursor.getString(InvestMeFragment.COL_MIN_PERIOD));
+
+
+
+
     }
+
+
+
+
+
 }

@@ -8,16 +8,14 @@
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
-    android:padding="0dp">
+    >
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-
-
+        android:padding="8dp"
         android:layout_weight="1">
 
 
@@ -39,14 +37,14 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/maxRate"
                 android:paddingRight="15dp"
                  />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_maxRate" />
 
@@ -60,19 +58,21 @@
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="20dp"
+            android:gravity="center"
             android:layout_height="wrap_content">
 
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/minAmount"
                 android:paddingRight="15dp"
+                android:text="@string/minAmount"
+
                  />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_minAmount" />
 
@@ -82,21 +82,23 @@
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:orientation="horizontal"
-                 android:paddingTop="20dp"
+                android:paddingTop="20dp"
                 android:layout_height="wrap_content">
 
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/minPeriod"
+                    android:layout_weight="1"
                     android:paddingRight="15dp"
                      />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:id="@+id/tv_minPeriod" />
 
             </LinearLayout>
@@ -111,35 +113,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
-
         android:layout_weight="1">
 
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/alfa"
-            />
+            android:src="@drawable/bank_placeholder"
+            android:id="@+id/iv_bank_logo" />
 
         <CheckBox
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/capitalization"
-
+            android:visibility="invisible"
             android:checked="false"
             android:id="@+id/capitalization" />
 
         <CheckBox
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/replenishment"
+            android:visibility="invisible"
             android:checked="false"
             android:id="@+id/replenishment" />
         <CheckBox
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/withdrawal"
+            android:visibility="invisible"
             android:checked="false"
             android:id="@+id/withdrawal" />
 

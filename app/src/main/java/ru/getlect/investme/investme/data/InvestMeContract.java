@@ -65,6 +65,7 @@ public class InvestMeContract {
         public static final String COLUMN_REPLENISHMENT = "replenishment";
         public static final String COLUMN_WITHDRAWAL = "withdrawal";
         public static final String COLUMN_CREATED_AT = "created_at";
+        public static final String COLUMN_BANK_ABBR = "bank_abbr";
 
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DEPOSITS).build();

@@ -14,9 +14,11 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
 
 
 
+
     public InvestMeDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
+
 
 
 
@@ -43,6 +45,7 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
                 InvestMeContract.DepositsEntry.COLUMN_REPLENISHMENT + " INTEGER DEFAULT 0," +
                 InvestMeContract.DepositsEntry.COLUMN_WITHDRAWAL + " INTEGER DEFAULT 0," +
                 InvestMeContract.DepositsEntry.COLUMN_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP," +
+                InvestMeContract.DepositsEntry.COLUMN_BANK_ABBR + " TEXT NOT NULL," +
 
                 //Set up the bank column as a foreign key to bank table
                 " FOREIGN KEY (" + InvestMeContract.DepositsEntry.COLUMN_BANK_ID + ") REFERENCES " +
@@ -53,7 +56,10 @@ public class InvestMeDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_BANKS_TABLE);
         db.execSQL(SQL_CREATE_DEPOSITS_TABLE);
 
+
     }
+
+
 
 
     //Update DB version

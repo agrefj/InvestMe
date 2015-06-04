@@ -47,13 +47,14 @@
     <string name="current">Текущий</string>
     <string name="share_info">Текущая цена за </string>
     <string name="action_share">Поделиться</string>
-    <string name="withdrawal">Снятие</string>
+    <string name="is"></string>
 
 
     //Deposits top
-    <string name="maxRate">Максимальная ставка:</string>
-    <string name="minAmount">Минимальная сумма:</string>
-    <string name="minPeriod">Минимальный срок, месяцев:</string>
+    <string name="maxRate">Макс. ставка:</string>
+    <string name="minAmount">Миним. сумма:</string>
+    <string name="minPeriod">Миним. срок, мес.:</string>
+    <string name="withdrawal">Снятие</string>
 
 
 

@@ -60,11 +60,12 @@
     <string name="current">Current</string>
     <string name="action_share">Share</string>
     <string name="share_info">Current price for </string>
+    <string name="is">is </string>
 
     //Deposits top
     <string name="maxRate">Maximum rate:</string>
     <string name="minAmount">Minimum amount:</string>
-    <string name="minPeriod">Minimum peropd, months:</string>
+    <string name="minPeriod">Min period, months:</string>
 
 
 

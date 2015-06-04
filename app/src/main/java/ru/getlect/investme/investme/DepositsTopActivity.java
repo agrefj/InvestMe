@@ -20,18 +20,6 @@ public class DepositsTopActivity extends ActionBarActivity implements InvestMeFr
 
         InvestMeSyncAdapter.syncImmediately(getApplicationContext());
 
- //       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_deposits);
- //       setSupportActionBar(toolbar);
- //       getSupportActionBar().setTitle(R.string.top_deposits);
- //       toolbar.setTitleTextColor(Color.WHITE);
- //       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
- //       final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
- //       upArrow.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.SRC_ATOP);
- //       getSupportActionBar().setHomeAsUpIndicator(upArrow);
-
-
-        InvestMeSyncAdapter.syncImmediately(getApplicationContext());
 
 
     }

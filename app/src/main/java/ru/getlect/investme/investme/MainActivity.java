@@ -66,6 +66,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             case R.id.ll_rating:
                 intent_main_activity = new Intent(this, DepositsTopActivity.class);
+                break;
 
 
             default:

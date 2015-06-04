@@ -1,18 +1,22 @@
 package ru.getlect.investme.investme;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
+
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import ru.getlect.investme.investme.data.InvestMeContract;
+import ru.getlect.investme.investme.data.InvestMeDBHelper;
 
 /**
  * Created by fj on 27.05.2015.
@@ -20,19 +24,29 @@ import ru.getlect.investme.investme.data.InvestMeContract;
 public class InvestMeFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
-    static final int COL_BANK_NAME = 0;
-    static final int COL_DEPOSIT = 1;
-    static final int COL_MAXRATE = 2;
-    static final int COL_MIN_AMOUNT = 3;
-    static final int COL_MIN_PERIOD = 4;
-    static final int COL_CAPITALIZATION = 5;
-    static final int COL_REPLENISHMENT = 6;
-    static final int COL_WITHDRAWAL = 7;
+    static final int COL_DEPOSIT_ID = 0;
+    static final int COL_BANK_ID = 1;
+    static final int COL_DEPOSIT = 2;
+    static final int COL_MAXRATE = 3;
+    static final int COL_MIN_AMOUNT = 4;
+    static final int COL_MIN_PERIOD = 5;
+    static final int COL_CAPITALIZATION = 6;
+    static final int COL_REPLENISHMENT = 7;
+    static final int COL_WITHDRAWAL = 8;
+    static final int COL_CREATED_AT = 9;
+
+    final String LOG_TAG = "myLogs";
+
+    InvestMeDBHelper dbh;
+    SQLiteDatabase db;
+
+
 
 
     private static final int INVESTME_LOADER_ID = 0;
 
     private static final String[] __COLUMNS = {
+            InvestMeContract.DepositsEntry.TABLE_NAME + '.' + InvestMeContract.DepositsEntry._ID,
             InvestMeContract.DepositsEntry.COLUMN_BANK_ID,
             InvestMeContract.DepositsEntry.COLUMN_DEPOSIT_NAME,
             InvestMeContract.DepositsEntry.COLUMN_MAX_RATE,
@@ -55,6 +69,30 @@ public class InvestMeFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        dbh = new InvestMeDBHelper(getActivity());
+        db =  dbh.getWritableDatabase();
+        Cursor cd = db.rawQuery("SELECT * FROM banks", null);
+        Cursor c = db.rawQuery("SELECT * FROM deposits", null);
+        logCursor(cd);
+        logCursor(c);
+    }
+
+    void logCursor(Cursor c) {
+        if (c != null) {
+            if (c.moveToFirst()) {
+                String str;
+                do {
+                    str = "";
+                    for (String cn : c.getColumnNames()) {
+                        str = str.concat(cn + " = " + c.getString(c.getColumnIndex(cn)) + "; ");
+                    }
+                    Log.d(LOG_TAG, str);
+                } while (c.moveToNext());
+            }
+        } else
+            Log.d(LOG_TAG, "Cursor is null");
 
     }
 

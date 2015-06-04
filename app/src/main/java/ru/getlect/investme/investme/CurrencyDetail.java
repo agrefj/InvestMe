@@ -43,6 +43,7 @@ public class CurrencyDetail extends ActionBarActivity {
     private String mCurrencyStr;
     private String share_info;
     private String share_currency;
+    private String mIs;
 
 
 
@@ -161,6 +162,7 @@ public class CurrencyDetail extends ActionBarActivity {
         ColorChanger();
 
         share_info = getResources().getString(R.string.share_info);
+        mIs = getResources().getString(R.string.is);
 
 
 
@@ -226,7 +228,7 @@ public class CurrencyDetail extends ActionBarActivity {
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, share_info + " " + share_currency + " " +
-                        mCurrencyStr + " " + INVEST_SHARE_HASHTAG);
+                mIs + " " + mCurrencyStr + " " + INVEST_SHARE_HASHTAG);
 
         return shareIntent;
     }

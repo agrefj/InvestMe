@@ -164,6 +164,10 @@ public class InvestMeSyncAdapter extends AbstractThreadedSyncAdapter {
             JSONArray deposits = itemsJSON.getJSONArray(ARR_DEPOSITS);
             Vector<ContentValues> cVVector = new Vector<ContentValues>(deposits.length());
 
+
+            Uri banksUri = InvestMeContract.BanksEntry.buildBanksUri();
+            getContext().getContentResolver().delete(banksUri, null, null);
+            getContext().getContentResolver().delete(InvestMeContract.DepositsEntry.buildDepositsUri(), null, null);
             for (int i = 0; i < deposits.length(); i++) {
 
                 JSONObject depositItem = deposits.getJSONObject(i);
@@ -189,7 +193,6 @@ public class InvestMeSyncAdapter extends AbstractThreadedSyncAdapter {
                 getContext().getContentResolver().bulkInsert(InvestMeContract.DepositsEntry.CONTENT_URI, cvArray);
             }
 
-            Uri banksUri = InvestMeContract.BanksEntry.buildBanksUri();
 
             Cursor cur = getContext().getContentResolver().query(banksUri, null, null, null, null);
 
